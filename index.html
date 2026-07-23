@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Charuivati | Homemade Healthy Food</title>
+    <link rel="icon" type="image/png" href="Watermark.png">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="logo-area">
+            <h1>Charuivati</h1>
+            <span class="bengali-text">চড়ুইভাতি</span>
+        </div>
+        <p class="tagline">HOMEMADE HEALTHY FOOD</p>
+    </header>
+
+    <!-- Hero Carousel -->
+    <section class="hero-carousel" id="hero-carousel">
+        <div class="carousel-track" id="carousel-track">
+            <div class="carousel-slide active" style="background: linear-gradient(135deg, #e62e2e 0%, #ff6b6b 100%);">
+                <div class="slide-content">
+                    <h2>Fresh Frozen. Always Homemade.</h2>
+                    <p>Order our signature Beef Shami Kebab — a box of 10 at ৳500!</p>
+                </div>
+            </div>
+            <div class="carousel-slide" style="background: linear-gradient(135deg, #d4a017 0%, #f0c75e 100%);">
+                <div class="slide-content">
+                    <h2>Authentic Bengali Pitha</h2>
+                    <p>Patisapta, Narikel Puli & more — taste of tradition delivered home.</p>
+                </div>
+            </div>
+            <div class="carousel-slide" style="background: linear-gradient(135deg, #27ae60 0%, #6ddb9c 100%);">
+                <div class="slide-content">
+                    <h2>Sweet Treats for Every Occasion</h2>
+                    <p>Caramel Pudding, Gajorer Halwa, special Narikeler Borfi & more.</p>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-btn carousel-prev" aria-label="Previous">&#10094;</button>
+        <button class="carousel-btn carousel-next" aria-label="Next">&#10095;</button>
+        <div class="carousel-dots" id="carousel-dots"></div>
+    </section>
+
+    <!-- Top Bar: Search + Tabs -->
+    <div class="top-bar container">
+        <div class="search-wrapper">
+            <input type="text" id="search-input" placeholder="Search menu items..." autocomplete="off">
+            <span class="search-icon">&#128269;</span>
+        </div>
+        <div class="category-tabs" id="category-tabs">
+            <button class="tab-btn active" data-category="all">All</button>
+            <button class="tab-btn" data-category="frozen">Frozen</button>
+            <button class="tab-btn" data-category="desserts">Pudding & Halwa</button>
+            <button class="tab-btn" data-category="pitha">Pitha & Cakes</button>
+        </div>
+    </div>
+
+    <div class="container main-layout">
+        <main class="menu-container">
+
+            <section class="menu-category">
+                <h2 class="category-title" data-target="frozen-grid">Frozen Items</h2>
+                <div class="menu-grid" id="frozen-grid"></div>
+            </section>
+
+            <section class="menu-category">
+                <h2 class="category-title" data-target="dessert-grid">Pudding & Halwa</h2>
+                <div class="menu-grid" id="dessert-grid"></div>
+            </section>
+
+            <section class="menu-category">
+                <h2 class="category-title" data-target="pitha-grid">Traditional Pitha & Cakes</h2>
+                <div class="menu-grid" id="pitha-grid"></div>
+            </section>
+
+        </main>
+
+        <aside class="checkout-sidebar" id="checkout-sidebar">
+            <div class="sidebar-sticky-box">
+                <div class="sidebar-header">
+                    <h2>Your Tray</h2>
+                    <div class="sidebar-header-actions">
+                        <button class="btn-clear-tray" id="btn-clear-tray">Clear All</button>
+                        <button class="sidebar-close-btn" id="sidebar-close" aria-label="Close tray">&times;</button>
+                    </div>
+                </div>
+
+                <div id="cart-items-list" class="cart-items-list">
+                    <p class="empty-message">Your tray is empty. Add yummy treats to start!</p>
+                </div>
+
+                <!-- Promo Code -->
+                <div class="promo-section">
+                    <input type="text" id="promo-input" placeholder="Promo code" autocomplete="off">
+                    <button id="promo-apply-btn">Apply</button>
+                    <span id="promo-message" class="promo-message"></span>
+                </div>
+
+                <div class="cart-summary-line">
+                    <span>Subtotal:</span>
+                    <span id="cart-total-amount">৳ 0</span>
+                </div>
+                <div class="cart-summary-line discount-line" id="discount-line" style="display:none;">
+                    <span>Discount:</span>
+                    <span id="discount-amount">-৳ 0</span>
+                </div>
+                <div class="cart-summary-line total-line">
+                    <span>Total:</span>
+                    <span id="cart-grand-total">৳ 0</span>
+                </div>
+
+                <form id="delivery-form" class="delivery-form">
+                    <h3>Delivery Details</h3>
+                    <div class="form-group">
+                        <label for="cust-name">Customer Name *</label>
+                        <input type="text" id="cust-name" required placeholder="e.g. Adnan Rahman">
+                        <span class="form-error" id="name-error"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="cust-phone">Phone Number *</label>
+                        <input type="tel" id="cust-phone" required placeholder="e.g. 017XX-XXXXXX">
+                        <span class="form-error" id="phone-error"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="cust-address">Delivery Address *</label>
+                        <textarea id="cust-address" required placeholder="House, Road, Area..."></textarea>
+                        <span class="form-error" id="address-error"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="delivery-slot">Preferred Delivery Time</label>
+                        <select id="delivery-slot">
+                            <option value="">Select a slot...</option>
+                            <option value="morning">Morning (10AM – 12PM)</option>
+                            <option value="afternoon">Afternoon (12PM – 4PM)</option>
+                            <option value="evening">Evening (4PM – 8PM)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="order-notes">Special Notes</label>
+                        <textarea id="order-notes" placeholder="Any preferences or requests..."></textarea>
+                    </div>
+
+                    <button type="submit" id="btn-submit-order" class="btn-submit-order" disabled>
+                        Send Order to WhatsApp
+                    </button>
+                </form>
+
+                <!-- Order Status Tracker -->
+                <div id="order-status-section" class="order-status-section" style="display:none;">
+                    <h3>Latest Order Status</h3>
+                    <div class="status-tracker" id="status-tracker">
+                        <div class="status-step completed"><span>✓</span> Received</div>
+                        <div class="status-step" id="status-preparing"><span>2</span> Preparing</div>
+                        <div class="status-step" id="status-delivered"><span>3</span> Delivered</div>
+                    </div>
+                    <p class="status-time" id="status-time"></p>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Floating Tray Badge (mobile) -->
+    <button class="tray-fab" id="tray-fab" aria-label="Open tray">
+        <span class="tray-fab-icon">&#128722;</span>
+        <span class="tray-fab-count" id="tray-count">0</span>
+    </button>
+
+    <!-- Quick-View Modal -->
+    <div class="modal-overlay" id="modal-overlay">
+        <div class="modal-content">
+            <button class="modal-close" id="modal-close">&times;</button>
+            <div class="modal-body" id="modal-body"></div>
+        </div>
+    </div>
+
+    <!-- Reviews Section -->
+    <section class="reviews-section container">
+        <div class="reviews-header">
+            <h2>What Our Customers Say</h2>
+            <button class="btn-review-add" id="btn-review-add">Write a Review</button>
+        </div>
+        <div class="reviews-carousel" id="reviews-carousel"></div>
+        <div class="reviews-dots" id="reviews-dots"></div>
+
+        <!-- Review Form Modal -->
+        <div class="review-form-overlay" id="review-form-overlay">
+            <div class="review-form-modal">
+                <button class="modal-close" id="review-form-close">&times;</button>
+                <h3>Share Your Experience</h3>
+                <div class="star-input" id="star-input">
+                    <span class="star" data-value="1">&#9733;</span>
+                    <span class="star" data-value="2">&#9733;</span>
+                    <span class="star" data-value="3">&#9733;</span>
+                    <span class="star" data-value="4">&#9733;</span>
+                    <span class="star" data-value="5">&#9733;</span>
+                </div>
+                <span class="form-error" id="review-star-error"></span>
+                <input type="text" id="review-name" placeholder="Your name" maxlength="50">
+                <textarea id="review-text" placeholder="Tell us about your experience..." maxlength="500"></textarea>
+                <button id="review-submit-btn" class="btn-submit-review">Submit Review</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="order-history-section container" id="order-history-section" style="display:none;">
+        <div class="order-history-header">
+            <h2>Your Past Orders</h2>
+            <button class="btn-clear-history" id="btn-clear-history">Clear History</button>
+        </div>
+        <div id="order-history-list"></div>
+    </section>
+
+    <footer class="main-footer">
+        <p>Charuivati &mdash; চড়ুইভাতি &bull; Homemade Healthy Food</p>
+        <p class="footer-small">Follow us on Facebook & Instagram for updates &amp; new arrivals!</p>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>
