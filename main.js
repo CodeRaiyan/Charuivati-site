@@ -35,8 +35,8 @@ const menuData = {
         { id: "choco_brownie", name: "Chocolate Cupcake / Brownie", desc: "Fudgy rich dark chocolate square bars or cupcakes.", options: [{ unit: "1 Piece", price: 35 }, { unit: "Box of 10", price: 350 }] }
     ]
 };
-const TARGET_WHATSAPP_PHONE = "8801500-000000";
-const PROMO_CODES = { "WELCOME10": 10, "CHOLO20": 20, "FROZEN15": 15 };
+const TARGET_WHATSAPP_PHONE = "01537-247621";
+/*const PROMO_CODES = { "WELCOME10": 10, "CHOLO20": 20, "FROZEN15": 15 };*/
 const globalCartState = {};
 let activeDiscountPct = 0;
 let activePromoCode = null;
